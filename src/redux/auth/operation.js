@@ -13,9 +13,10 @@ export const register = createAsyncThunk(
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
         }
-    }
-    
-) 
+    } 
+);
+
+
 export const login = createAsyncThunk(
     'auth/login',
     async (userdata, thunkApi)=>{
