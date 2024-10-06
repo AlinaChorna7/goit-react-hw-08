@@ -1,19 +1,51 @@
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/operation';
+import { useDispatch } from "react-redux";
+import styles from "./Contact.module.css";
+import { FaUser, FaPhone } from "react-icons/fa6";
+import { changeCurrentContact } from "../../redux/contacts/slice";
+import { setDelModal, setModal } from "../../redux/modal/slice";
 
-const Contact = ({ contact }) => {
+export default function Contact({ contact }) {
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deleteContact(contact.id));
-  };
+ 
+    function onDelete() {
+        dispatch(changeCurrentContact(contact));
+        dispatch(setDelModal(true));
+      }
+      function onEdit(contact) {
+        dispatch(setModal(true));
+        dispatch(changeCurrentContact(contact));
+      }
+  
+  
 
   return (
-    <li className="contact-item">
-      {contact.name}: {contact.number}
-      <button onClick={handleDelete} className="delete-button">Delete</button>
-    </li>
+    <div className={styles.wrapper}>
+      <div>
+        <h2 className={styles.title}>
+          <FaUser className={styles.icon} size="14" /> {contact.name}
+        </h2>
+        <p className={styles.phone}>
+          <FaPhone className={styles.icon} size="14" />
+          {contact.number}
+        </p>
+      </div>
+      <div className={styles.btnWrapper}>
+        <button
+          className={styles.button}
+          type="button"
+          onClick={() => onEdit(contact)}
+        >
+          Edit
+        </button>
+        <button
+          className={styles.button}
+          type="button"
+          onClick={() => onDelete(contact.id)}
+        >
+          Delete
+        </button>
+      </div>
+    </div>
   );
-};
-
-export default Contact;
+}

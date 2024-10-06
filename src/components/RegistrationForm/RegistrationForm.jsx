@@ -7,6 +7,13 @@ import styles from './RegistrationForm.module.css'
 const RegistrationForm=()=>{
     const dispatch = useDispatch();
 
+   function handleRegistr(values,actions){
+if(values.name === "" || values.email === "" || values.password === "")
+    return;
+dispatch(register(values));
+actions.resetForm();
+    }
+
     const validationSchema = Yup.object({
         name: Yup.string()
           .min(2, 'Name must be at least 2 characters')
@@ -20,26 +27,28 @@ const RegistrationForm=()=>{
       });
 
     return(
+        <>
         <Formik
         initialValues={{name:'', email:'',password:''}}
         validationSchema={validationSchema}
-        onSubmit={(values)=>{dispatch(register(values))}} >
-        <Form>
+        onSubmit={handleRegistr} >
+        <Form className={styles.form}>
             <div>
-                <Field name="name" placeholder="Name"/>
+                <Field className={styles.input} name="name" placeholder="Name"/>
                 <ErrorMessage name="name" component="div" className={styles.error} />
             </div>
             <div>
-                <Field name="email" placeholder="Email"/>
+                <Field className={styles.input} name="email" placeholder="Email"/>
                 <ErrorMessage name="email" component="div" className={styles.error}/>
             </div>
             <div>
-                <Field name="password" type="password" placeholder="Password"/>
+                <Field className={styles.input} name="password" type="password" placeholder="Password"/>
                 <ErrorMessage name="password" component="div" className={styles.error}/>
             </div>
-            <button type="submit">Submit</button>
+            <button className={styles.regbtn} type="submit">Submit</button>
         </Form>
         </Formik>
+        </>
     )
 }
 export default RegistrationForm;
