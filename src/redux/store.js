@@ -8,7 +8,7 @@ import filtersReducer from './filters/slice';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['desiredReducer'], 
+   
   };
   
 
@@ -25,3 +25,6 @@ const persistConfig = {
   });
   
   export const persistor = persistStore(store)
+
+
+ 

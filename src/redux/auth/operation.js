@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = 'https://connections-api.goit.global/';  
+const API_URL = 'https://connections-api.goit.global';  
 
 
 export const register = createAsyncThunk(
     'auth/register',
     async (userdata, thunkApi)=>{
         try {
-            const response = await axios.post(`${API_URL}/register`, userdata)
+            const response = await axios.post(`${API_URL}/users/signup`, userdata)
             return response.data;
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
@@ -21,8 +21,9 @@ export const login = createAsyncThunk(
     'auth/login',
     async (userdata, thunkApi)=>{
         try {
-            const response = await axios.post(`${API_URL}/login`, userdata);
+            const response = await axios.post(`${API_URL}/users/login`, userdata);
             return response.data;
+            
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
         }
@@ -34,7 +35,7 @@ export const logout = createAsyncThunk(
         localStorage.removeItem('token');
        
         try {
-            await axios.post(`${API_URL}/logout`);
+            await axios.post(`${API_URL}/users/logout`);
         } catch (error) {
             return thunkApi.rejectWithValue(error.message);
         }

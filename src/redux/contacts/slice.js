@@ -20,6 +20,7 @@ extraReducers:(builder)=>{
   .addCase(fetchContacts.fulfilled, (state, action)=>{
     state.loading = false;
     state.items = action.payload;
+    console.log("Contacts in state:", state.items)
   })
   .addCase(fetchContacts.rejected, (state, action)=>{
     state.loading = false;
