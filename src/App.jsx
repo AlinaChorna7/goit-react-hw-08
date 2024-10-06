@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import { refreshUser } from './redux/auth/operation';
+import { refreshUser } from './redux/auth/operations';
 import { Toaster } from "react-hot-toast";
 import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';

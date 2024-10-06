@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectDelModalIsOpen } from "../../redux/modal/selectors"
 import { setDelModal } from "../../redux/modal/slice";
 import { selectCurrentContact } from "../../redux/contacts/selectors";
-import { deleteContact } from "../../redux/contacts/operation"
+import { deleteContact } from "../../redux/contacts/operations"
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import styles from "./DeleteModal.module.css";
 import toast from "react-hot-toast";

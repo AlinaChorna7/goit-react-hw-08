@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import styles from "./EditForm.module.css";
 import { setModal } from "../../redux/modal/slice";
-import { editContact } from "../../redux/contacts/operation";
+import { editContact } from "../../redux/contacts/operations";
 import toast from "react-hot-toast";
 import { selectCurrentContact } from "../../redux/contacts/selectors";
 
