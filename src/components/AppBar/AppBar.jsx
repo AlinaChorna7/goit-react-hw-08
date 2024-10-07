@@ -9,8 +9,11 @@ const isLoggedIn = useSelector(selectIsLoggedIn);
 
 return(
     <header className={styles.header}>
+       
         <Navigation/>
+     
         {isLoggedIn ? <UserMenu/> : <AuthNav/>}
+
     </header>
 )
 }

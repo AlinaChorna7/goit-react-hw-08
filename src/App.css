@@ -1,8 +1,8 @@
 #root {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 10px;
   text-align: center;
 }
 .title {
@@ -10,5 +10,5 @@
 }
 .container {
   padding: 50px;
-  max-width: 960px;
+  width: 100%;
 }

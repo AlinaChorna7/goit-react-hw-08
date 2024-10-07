@@ -18,3 +18,4 @@ export const selectFilteredContacts = createSelector(
         contact.number.includes(filter)
     )
 );
+

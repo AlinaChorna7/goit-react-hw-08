@@ -26,29 +26,34 @@ actions.resetForm();
           .required('Required'),
       });
 
-    return(
-        <>
-        <Formik
-        initialValues={{name:'', email:'',password:''}}
+
+       return (
+  <>
+    <div className={styles.formContainer}>
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
         validationSchema={validationSchema}
-        onSubmit={handleRegistr} >
+        onSubmit={handleRegistr}
+      >
         <Form className={styles.form}>
-            <div>
-                <Field className={styles.input} name="name" placeholder="Name"/>
-                <ErrorMessage name="name" component="div" className={styles.error} />
-            </div>
-            <div>
-                <Field className={styles.input} name="email" placeholder="Email"/>
-                <ErrorMessage name="email" component="div" className={styles.error}/>
-            </div>
-            <div>
-                <Field className={styles.input} name="password" type="password" placeholder="Password"/>
-                <ErrorMessage name="password" component="div" className={styles.error}/>
-            </div>
-            <button className={styles.regbtn} type="submit">Submit</button>
+          <div>
+            <Field className={styles.input} name="name" placeholder="Name" />
+            <ErrorMessage name="name" component="div" className={styles.error} />
+          </div>
+          <div>
+            <Field className={styles.input} name="email" placeholder="Email" />
+            <ErrorMessage name="email" component="div" className={styles.error} />
+          </div>
+          <div>
+            <Field className={styles.input} name="password" type="password" placeholder="Password" />
+            <ErrorMessage name="password" component="div" className={styles.error} />
+          </div>
+          <button className={styles.regbtn} type="submit">Submit</button>
         </Form>
-        </Formik>
-        </>
-    )
+      </Formik>
+    </div>
+  </>
+);
+
 }
 export default RegistrationForm;
