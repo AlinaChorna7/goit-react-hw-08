@@ -37,7 +37,7 @@ export default function EditForm() {
       duration: 4000,
       position: "top-center",
       style: {
-        background: "green",
+        background: "purple",
         color: "white",
       },
     });

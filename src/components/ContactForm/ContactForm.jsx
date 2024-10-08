@@ -17,7 +17,7 @@ const validationSchema = Yup.object({
     .required('Required'),
 });
 
-const ContactForm = () => {
+export default function ContactForm(){
   const dispatch = useDispatch();
   const nameFieldId = useId();
   const numberFieldId = useId();
@@ -85,4 +85,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+ ContactForm;

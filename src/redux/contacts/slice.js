@@ -50,13 +50,15 @@ const index = state.items.findIndex((contact)=> contact.id === action.payload.id
 state.items.splice(index,1)
 })
 .addCase(deleteContact.rejected, handleRejected)
+
 .addCase(editContact.pending, handlePending)
-.addCase(editContact.fulfilled, (state, action)=>{
+.addCase(editContact.fulfilled, (state, action) => {
   state.isLoading = false;
   state.error = false;
-  state.items = state.items.map((item)=>{
+  state.items = state.items.map((item) =>
     item.id === state.currentContact.id ? action.payload : item
-  })
+  );
+  state.currentContact = null;
 })
 .addCase(editContact.rejected, handleRejected)
 .addCase(logout.fulfilled, (state) => {
